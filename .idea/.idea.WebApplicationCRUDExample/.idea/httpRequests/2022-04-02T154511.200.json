@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2022-04-03T15:45:11.763034-03:00",
+    "temperatureC": 37,
+    "temperatureF": 98,
+    "summary": "Bracing"
+  },
+  {
+    "date": "2022-04-04T15:45:11.763045-03:00",
+    "temperatureC": -20,
+    "temperatureF": -3,
+    "summary": "Balmy"
+  },
+  {
+    "date": "2022-04-05T15:45:11.763046-03:00",
+    "temperatureC": 0,
+    "temperatureF": 32,
+    "summary": "Mild"
+  },
+  {
+    "date": "2022-04-06T15:45:11.763047-03:00",
+    "temperatureC": 28,
+    "temperatureF": 82,
+    "summary": "Bracing"
+  },
+  {
+    "date": "2022-04-07T15:45:11.763047-03:00",
+    "temperatureC": -5,
+    "temperatureF": 24,
+    "summary": "Freezing"
+  }
+]

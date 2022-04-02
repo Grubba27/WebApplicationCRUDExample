@@ -1,0 +1,18 @@
+GET http://localhost:8080/WeatherForecast
+
+###
+
+GET http://localhost:8080/WeatherForecast
+
+###
+
+GET https://localhost:7036/WeatherForecast
+
+<> 2022-04-02T154511.200.json
+
+###
+
+GET http://localhost:7036/WeatherForecast
+
+###
+
