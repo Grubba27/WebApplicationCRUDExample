@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using WebApplicationCRUDExample.Models;
 using WebApplicationCRUDExample.Services;
 
 namespace WebApplicationCRUDExample.Controllers;
@@ -8,11 +7,11 @@ namespace WebApplicationCRUDExample.Controllers;
 [Route("api/[controller]")]
 public class AuthController : Controller
 {
-    private readonly LibraryService _libraryService;
+    private readonly UserService _userService;
 
-    public AuthController(LibraryService libraryService)
+    public AuthController(UserService userService)
     {
-        _libraryService = libraryService;
+        _userService = userService;
     }
 
 
@@ -20,9 +19,9 @@ public class AuthController : Controller
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<dynamic>> Authenticate([FromBody] string id)
     {
-        // Verifica antes se os hash das senhas batem;
+        // Obtem esse id via email/hash e usa para logar o user;
 
-        var user = await _libraryService.GetUserByIdAsync(id);
+        var user = await _userService.GetUserByIdAsync(id);
 
         // Verifica se o usuário existe
         if (user is null)

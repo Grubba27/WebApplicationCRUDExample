@@ -8,9 +8,6 @@ namespace WebApplicationCRUDExample.Services;
 public class LibraryService
 {
     private readonly IMongoCollection<Book> _booksCollection;
-    private readonly IMongoCollection<User> _usersCollection;
-
-
     public LibraryService(
         IOptions<MongoDBSettings> library)
     {
@@ -22,12 +19,7 @@ public class LibraryService
 
         _booksCollection = mongoDatabase.GetCollection<Book>(
             library.Value.BooksCollectionName);
-
-        _usersCollection = mongoDatabase.GetCollection<User>(
-            library.Value.UsersCollectionName);
     }
-
-    #region BookCRUD
 
     public async Task<List<Book>> GetBookAsync() =>
         await _booksCollection.Find(_ => true).ToListAsync();
@@ -44,26 +36,5 @@ public class LibraryService
     public async Task RemoveBookAsync(string id) =>
         await _booksCollection.DeleteOneAsync(x => x.Id == id);
 
-    #endregion
-
-
-    #region UserCrud
-
-    public async Task<List<User>> GetUserAsync() =>
-        await _usersCollection.Find(_ => true).ToListAsync();
-
-    public async Task<User?> GetUserByIdAsync(string id) =>
-        await _usersCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
-
-    public async Task CreateUserAsync(User newUser) =>
-        await _usersCollection.InsertOneAsync(newUser);
-
-    public async Task UpdateUserAsync(string id, User updatedUser) =>
-        await _usersCollection.ReplaceOneAsync(x => x.Id == id, updatedUser);
-
-    public async Task RemoveUserAsync(string id) =>
-        await _usersCollection.DeleteOneAsync(x => x.Id == id); 
-    
-
-    #endregion
+   
 }
