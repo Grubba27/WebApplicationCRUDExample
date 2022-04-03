@@ -6,14 +6,20 @@ using WebApplicationCRUDExample;
 using WebApplicationCRUDExample.Services;
 using WebApplicationCRUDExample.Services.DB;
 
+#region Builder
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
 builder.Services.Configure<MongoDBSettings>(
     builder.Configuration.GetSection("LibraryDatabase"));
+
 builder.Services.AddSingleton<LibraryService>();
+builder.Services.AddSingleton<UserService>();
+
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen(setup =>
 {
     // Include 'SecurityScheme' to use JWT Authentication
@@ -61,6 +67,11 @@ builder.Services
             };
         }
     );
+
+#endregion
+
+#region App
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -76,3 +87,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.Run();
+
+#endregion
