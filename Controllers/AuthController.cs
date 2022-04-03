@@ -23,17 +23,13 @@ public class AuthController : Controller
 
         var user = await _userService.GetUserByIdAsync(id);
 
-        if (user is null)
-        {
-            return NotFound();
-        }
+        if (user is null) return NotFound();
 
         var token = AuthService.GenerateToken(user);
 
         return new
         {
-            user = user,
-            token = token
+            user, token
         };
     }
 }

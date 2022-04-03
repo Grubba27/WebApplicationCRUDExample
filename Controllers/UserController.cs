@@ -28,10 +28,7 @@ public class UserController : Controller
     {
         var user = await _userService.GetUserByIdAsync(id);
 
-        if (user is null)
-        {
-            return NotFound();
-        }
+        if (user is null) return NotFound();
 
         return user;
     }
@@ -44,10 +41,9 @@ public class UserController : Controller
         var user = await _userService.GetUserByIdAsync(id);
         List<Book> bookList = new List<Book>();
 
-        if (user is null)
-        {
-            return NotFound();
-        }
+        if (user is null) return NotFound();
+        
+        if (user.UserLikes is null) return BadRequest();
 
         foreach (var bookId in user.UserLikes)
         {
@@ -76,10 +72,7 @@ public class UserController : Controller
     {
         var oldUser = await _userService.GetUserByIdAsync(id);
 
-        if (oldUser is null)
-        {
-            return NotFound();
-        }
+        if (oldUser is null) return NotFound();
 
         await _userService.UpdateUserAsync(id, updatedUser);
         return NoContent();
@@ -93,10 +86,7 @@ public class UserController : Controller
     {
         var user = await _userService.GetUserByIdAsync(id);
 
-        if (user is null)
-        {
-            return NotFound();
-        }
+        if (user is null) return NotFound();
 
         await _userService.RemoveUserAsync(id);
 

@@ -27,10 +27,7 @@ public class LibraryController : Controller
     {
         var book = await _libraryService.GetBookByIdAsync(id);
 
-        if (book is null)
-        {
-            return NotFound();
-        }
+        if (book is null) return NotFound();
 
         return book;
     }
@@ -52,10 +49,7 @@ public class LibraryController : Controller
     {
         var oldBook = await _libraryService.GetBookByIdAsync(id);
 
-        if (oldBook is null)
-        {
-            return NotFound();
-        }
+        if (oldBook is null) return NotFound();
 
         await _libraryService.UpdateBookAsync(id, updatedBook);
 
@@ -70,10 +64,7 @@ public class LibraryController : Controller
     {
         var book = await _libraryService.GetBookByIdAsync(id);
 
-        if (book is null)
-        {
-            return NotFound();
-        }
+        if (book is null) return NotFound();
 
         await _libraryService.RemoveBookAsync(id);
 
