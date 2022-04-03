@@ -11,13 +11,18 @@ public class LibraryController : Controller
 {
     private readonly LibraryService _libraryService;
 
-    public LibraryController(LibraryService libraryService) =>
+    public LibraryController(LibraryService libraryService)
+    {
         _libraryService = libraryService;
+    }
 
 
     [HttpGet("/books")]
     [Authorize]
-    public async Task<List<Book>> GetBooks() => await _libraryService.GetBookAsync();
+    public async Task<List<Book>> GetBooks()
+    {
+        return await _libraryService.GetBookAsync();
+    }
 
     [HttpGet("/books/{id:length(24)}")]
     [Authorize]
@@ -70,6 +75,4 @@ public class LibraryController : Controller
 
         return NoContent();
     }
-
-
 }

@@ -19,7 +19,10 @@ public class UserController : Controller
 
 
     [HttpGet("/users/")]
-    public async Task<List<User>> GetUsers() => await _userService.GetUserAsync();
+    public async Task<List<User>> GetUsers()
+    {
+        return await _userService.GetUserAsync();
+    }
 
     [HttpGet("/users/{id:length(24)}")]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -39,19 +42,16 @@ public class UserController : Controller
     public async Task<ActionResult<List<Book>>> GetUserLikes(string id)
     {
         var user = await _userService.GetUserByIdAsync(id);
-        List<Book> bookList = new List<Book>();
+        var bookList = new List<Book>();
 
         if (user is null) return NotFound();
-        
+
         if (user.UserLikes is null) return BadRequest();
 
         foreach (var bookId in user.UserLikes)
         {
             var book = await _libraryService.GetBookByIdAsync(bookId);
-            if (book is not null)
-            {
-                bookList.Add(book);
-            }
+            if (book is not null) bookList.Add(book);
         }
 
         return bookList;
