@@ -23,13 +23,11 @@ public class AuthController : Controller
 
         var user = await _userService.GetUserByIdAsync(id);
 
-        // Verifica se o usuário existe
         if (user is null)
         {
             return NotFound();
         }
 
-        // Gera o Token
         var token = AuthService.GenerateToken(user);
 
         return new
