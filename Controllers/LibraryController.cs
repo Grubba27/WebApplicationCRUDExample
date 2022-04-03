@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApplicationCRUDExample.Models;
 using WebApplicationCRUDExample.Services;
@@ -6,7 +7,7 @@ namespace WebApplicationCRUDExample.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class LibraryController : ControllerBase
+public class LibraryController : Controller
 {
     private readonly LibraryService _libraryService;
 
@@ -16,9 +17,11 @@ public class LibraryController : ControllerBase
     #region Books
 
     [HttpGet("/books")]
+    [Authorize]
     public async Task<List<Book>> GetBooks() => await _libraryService.GetBookAsync();
 
     [HttpGet("/books/{id:length(24)}")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult<Book>> GetBookById(string id)
@@ -34,6 +37,7 @@ public class LibraryController : ControllerBase
     }
 
     [HttpPost("/books/")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<IActionResult> PostBook(Book book)
     {
@@ -42,6 +46,7 @@ public class LibraryController : ControllerBase
     }
 
     [HttpPut("/books/{id:length(24)}")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> UpdateBook(string id, Book updatedBook)
@@ -59,6 +64,7 @@ public class LibraryController : ControllerBase
     }
 
     [HttpDelete("/books/{id:length(24)}")]
+    [Authorize]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> DeleteBook(string id)

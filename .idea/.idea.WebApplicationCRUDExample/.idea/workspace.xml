@@ -9,20 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cace0e7-fb28-47e2-9808-ee9cb86dcd43" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/LibraryController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Book.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/DB/MongoDBContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/LibraryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApplicationCRUDExample.sln.DotSettings.user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/AuthService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Settings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplicationCRUDExample/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplicationCRUDExample/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/WeatherForecastController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/WeatherForecast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/LibraryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LibraryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/User.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApplicationCRUDExample.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApplicationCRUDExample.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1648924968448</updated>
-      <workItem from="1648924978853" duration="13812000" />
+      <workItem from="1648924978853" duration="16637000" />
     </task>
     <servers />
   </component>
